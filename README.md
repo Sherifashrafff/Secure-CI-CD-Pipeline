@@ -1,4 +1,4 @@
-# my-jenkins-app
+# Secure-CI-CD-Pipeline
 
 A React application with a fully automated secure CI/CD pipeline powered by Jenkins and deployed to AWS ECS Fargate.
 
