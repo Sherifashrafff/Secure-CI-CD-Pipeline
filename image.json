@@ -1,0 +1,22 @@
+{
+  "family": "<TASK_FAMILY>",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "containerDefinitions": [{
+    "name": "app",
+    "image": "<ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/<ECR_REPO>:latest",
+    "essential": true,
+    "portMappings": [{"containerPort": 80, "protocol": "tcp"}],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "<LOG_GROUP>",
+        "awslogs-region": "<AWS_REGION>",
+        "awslogs-stream-prefix": "app"
+      }
+    }
+  }]
+}
